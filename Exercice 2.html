@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 30px;
+        }
+        input, button {
+            padding: 8px;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+        p {
+            font-size: 18px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Création de l'interface utilisateur et Saisie d'un nombre -->
+    <label for="numberInput">Entrez un nombre :</label><br>
+    <input type="number" id="numberInput" placeholder="Ex : 42">
+
+    <!-- Affichage des résultats -->
+    <p id="sqrtResult"></p>
+    <p id="roundResult"></p>
+
+    <!-- Bouton pour générer un nombre aléatoire -->
+    <button id="btnRandom">Générer un nombre aléatoire (1 à 100)</button>
+    <p id="randomResult"></p>
+
+    <!-- Interface pour la fonction Aleatoire2 -->
+    <h3>Génération entre un min et un max</h3>
+    <label>Min :</label>
+    <input type="number" id="minVal" value="1">
+    <label>Max :</label>
+    <input type="number" id="maxVal" value="10">
+    <button id="btnRandom2">Générer entre min et max</button>
+    <p id="randomResult2"></p>
+
+    <script>
+        const numberInput = document.getElementById("numberInput");
+        const sqrtResult = document.getElementById("sqrtResult");
+        const roundResult = document.getElementById("roundResult");
+
+        const randomResult = document.getElementById("randomResult");
+        const randomResult2 = document.getElementById("randomResult2");
+
+        numberInput.addEventListener("input", function () {
+            let nb = parseFloat(numberInput.value);
+
+            if (!isNaN(nb)) {
+                // √ Racine carrée
+                sqrtResult.textContent = "Racine carrée : " + Math.sqrt(nb);
+
+                // Arrondi
+                roundResult.textContent = "Arrondi : " + Math.round(nb);
+            } else {
+                sqrtResult.textContent = "";
+                roundResult.textContent = "";
+            }
+        });
+
+         function Aleatoire() {
+            // Génère entre 1 et 100
+            return Math.floor(Math.random() * 100) + 1;
+        }
+
+        document.getElementById("btnRandom").addEventListener("click", function () {
+            randomResult.textContent = "Nombre aléatoire (1 à 100) : " + Aleatoire();
+        });
+
+        // -------------- 3) Fonction Aleatoire2(min, max) ----------------
+        function Aleatoire2(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+
+        document.getElementById("btnRandom2").addEventListener("click", function () {
+            let min = parseInt(document.getElementById("minVal").value);
+            let max = parseInt(document.getElementById("maxVal").value);
+
+            if (!isNaN(min) && !isNaN(max) && min <= max) {
+                randomResult2.textContent = 
+                    "Nombre généré entre " + min + " et " + max + " : " + Aleatoire2(min, max);
+            } else {
+                randomResult2.textContent = "Veuillez entrer des valeurs valides.";
+            }
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 30px;
+            max-width: 450px;
+        }
+        input, button {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+        p {
+            font-size: 20px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Calcul de prêt hypothécaire</h2>
+
+    <label>Montant du prêt (€) :</label>
+    <input type="number" id="montant" placeholder="Ex : 200000">
+
+    <label>Taux d'intérêt annuel (%) :</label>
+    <input type="number" id="taux" placeholder="Ex : 5">
+
+    <label>Durée (en années) :</label>
+    <input type="number" id="duree" placeholder="Ex : 20">
+
+    <button onclick="calculerPaiement()">Calculer le paiement mensuel</button>
+
+    <p id="resultat"></p>
+
+    <script>
+        function calculerPaiement() {
+
+            // Récupération des valeurs
+            let P = parseFloat(document.getElementById("montant").value);
+            let tauxAnnuel = parseFloat(document.getElementById("taux").value);
+            let dureeAnnees = parseFloat(document.getElementById("duree").value);
+
+            // Validation des valeurs
+            if (isNaN(P) || P <= 0) {
+                alert("Veuillez entrer un montant de prêt valide et positif.");
+                return;
+            }
+
+            if (isNaN(tauxAnnuel) || tauxAnnuel <= 0) {
+                alert("Veuillez entrer un taux d'intérêt annuel valide et positif.");
+                return;
+            }
+
+            if (isNaN(dureeAnnees) || dureeAnnees <= 0) {
+                alert("Veuillez entrer une durée valide et positive.");
+                return;
+            }
+
+            // Taux mensuel en décimal
+            let r = (tauxAnnuel / 100) / 12;
+
+            // Nombre total de paiements
+            let n = dureeAnnees * 12;
+
+            // Formule d'amortissement :
+            // M = P * (r * (1 + r)^n) / ((1 + r)^n - 1)
+
+            let M;
+
+            if (r === 0) {
+                // Cas rare où le taux serait 0%
+                M = P / n;
+            } else {
+                let puissance = Math.pow(1 + r, n);
+                M = P * (r * puissance) / (puissance - 1);
+            }
+
+            // Affichage du résultat arrondi à 2 décimales
+            document.getElementById("resultat").textContent =
+                "Paiement mensuel : " + M.toFixed(2) + " €";
+        }
+    </script>
+
+</body>
+</html>

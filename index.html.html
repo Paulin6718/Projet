@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AHOUANGBASSA Paulin David-Developpeur Web</title>
+    <style>
+       /* --------- RESET STYLE --------- */
+       {
+           margin: 0;
+           padding: 0;
+           box-sizing: border-box;
+           font-family: Arial, sans-serif;
+       } 
+
+       body {
+           background: #f7f7f7;
+           color: #333;
+        }
+
+       /* --------- NAVBAR --------- */
+       header {
+           background: #222;
+           padding: 15px 0;
+        }
+
+       .navbar {
+           width: 90%;
+           margin: auto;
+           display: flex;
+           justify-content: space-between;
+           align-items: center;
+        }
+
+       .navbar .logo {
+           color: white;
+        }
+
+        .logo h2 {
+           color: #0078ff; /* bleu */
+           font-weight: 700; /* optionnel : rend le texte plus fort */
+        }
+
+
+       .navbar ul {
+           display: flex;
+           gap: 20px;
+        }
+
+       .navbar a {
+           color: white;
+           text-decoration: none;
+           transition: 0.3s;
+        }
+
+       .navbar a:hover {
+           color: #00aaff;
+        }
+
+        /* --------- SECTIONS --------- */
+       .section {
+           padding: 60px 10%;
+        }
+
+       .section h2 {
+           margin-bottom: 20px;
+        }
+
+        #contact p {
+           margin: 2px 0;
+        }
+
+        /* --------- ACCUEIL --------- */
+       .accueil {
+           background: linear-gradient(120deg, #0078ff, #00d4ff);
+           color: white;
+           text-align: center;
+           padding: 120px 10%;
+        }
+        /* --------- SECTION ACCUEIL --------- */
+       .accueil {
+           background: linear-gradient(120deg, #0078ff, #00d4ff);
+           color: white;
+           padding: 100px 10%;
+        }
+
+       .accueil-container {
+           display: flex;
+           align-items: center;
+           justify-content: space-between;
+           gap: 40px;
+           flex-wrap: wrap;
+        }
+
+        /* Texte à gauche */
+       .accueil .content {
+           flex: 1;
+           max-width: 550px;
+        }
+
+        /* Image à droite */
+       .accueil-image {
+           flex: 1;
+           display: flex;
+           justify-content: center;
+        }
+
+       .accueil-image img {
+           width: 380px;        /* Tu peux augmenter ou réduire */
+           height: auto;        /* On garde les proportions naturelles */
+           object-fit: cover;   /* Assure une belle qualité d'affichage */
+           background: transparent;
+           mix-blend-mode: multiply;
+           opacity: 0.95;
+        }
+
+        #prenom {
+           color: purple;
+        }
+
+       .accueil .btn {
+           margin-top: 20px;
+        }
+
+        /* --------- BOUTONS --------- */
+       .btn {
+           display: inline-block;
+           background: #0078ff;
+           color: white;
+           padding: 10px 18px;
+           border-radius: 5px;
+           text-decoration: none;
+           border: none;
+           cursor: pointer;
+           transition: 0.3s;
+        }
+
+        .section.apropos h2 {
+           color: #181818;
+           text-align: center;
+        }
+
+         .section.projets h2 {
+           color: #181818;
+           text-align: center;
+        }
+
+       .section.competences {
+           background: #f7f7fc;
+           padding: 40px 0;
+        }
+
+       .section.competences h2 {
+           text-align: center;
+           margin-bottom: 36px;
+           font-size: 2rem;
+           font-weight: bold;
+        }
+
+       .skills {
+           display: flex;
+           justify-content: center;
+           gap: 50px;
+        }
+
+       .skills-category {
+           background: #fff;
+           border-radius: 16px;
+           box-shadow: 0 4px 16px rgba(0,0,0,0.04);
+           padding: 30px 24px;
+           min-width: 280px;
+        }
+
+       .skills-category h3 {
+           text-align: center;
+           font-size: 1.15rem;
+           font-weight: 600;
+           margin-bottom: 26px;
+        }
+
+       .skills-category ul {
+           list-style: none;
+           padding: 0;
+           margin: 0;
+        }
+
+       .skills-category li {
+           margin-bottom: 24px;
+           font-size: 1rem;
+           position: relative;
+        }
+
+       .progress-bar {
+           height: 7px;
+           background: #e2e2e2;
+           border-radius: 12px;
+           margin-top: 7px;
+           width: 100%;
+           overflow: hidden;
+        }
+
+       .progress {
+           height: 100%;
+           background: #005fcc;
+           border-radius: 12px 0 0 12px;
+           transition: width 0.5s;
+        }
+
+
+       .btn:hover {
+           background: #005fcc;
+        }
+
+        /* --------- PROJETS --------- */
+        .project-grid {
+           display: grid;
+           font-weight: 700;
+           grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+           gap: 20px;
+        }
+
+
+       .project-card {
+           padding: 20px;
+           text-decoration: #181818;
+           border-radius: 8px;
+           box-shadow: 0 2px 8px;
+           background: #f0f0f1cb;
+        }
+
+       .tags {
+           display: inline-block;
+           background: #eee;
+           padding: 4px 8px;
+           margin-top: 10px;
+           border-radius: 4px;
+           font-size: 12px;
+        }
+
+        /* --------- COMPÉTENCES --------- */
+       .skills {
+           color: #181818;
+           display: flex;
+           justify-content: space-between;
+           flex-wrap: wrap;
+        }
+
+       .section.competences {
+           background: #f7f7fc;
+        }
+
+       .section.competences h2 {
+           color: #181818;
+           font-size: 2rem;
+           font-weight: 700;
+        }
+
+        .section.contact {
+           background: #181818;
+           color: white;
+           font-size: 2rem;
+           font-weight: 700;
+        }
+
+        .section.contact {
+           color: #fff;
+           font-size: 2rem;
+           font-weight: 700;
+           text-align: center;
+        }
+        
+       .section.compétence {
+           color: #fff;
+           background-color: #181818;
+           font-size: 2rem;
+           font-weight: 700;
+           text-align: center; color: #181818;
+        }
+
+       .skills-card {
+          color: #181818;
+          background: #fff;
+          font-weight: 700;
+        }
+
+        form input, form textarea {
+           margin-bottom: 0;
+        }
+
+       .contact p {
+          margin: 2px 0;
+          line-height: 1.2;
+        }
+
+       .skills-category ul {
+           padding-left: 20px;
+        }
+
+        .skills {
+           display: flex;
+           justify-content: space-between;  /* espace égal entre les éléments */
+           gap: 40px;                       /* espace entre les deux cadres */
+           padding: 0 40px;                 /* espace entre les bords gauche/droit et les cadres */
+        }
+
+       .skills-category {
+           flex: 1;                         /* les deux cadres prennent la même largeur */
+           background: #ffffff;             /* optionnel : fond blanc propre */
+           padding: 25px;                   /* espace interne */
+           border-radius: 10px;             /* coins arrondis premium */
+           box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* ombre légère */
+        }
+
+    @media (max-width: 768px) {
+       .skills {
+          flex-direction: column;
+          padding: 0 20px;     /* réduit l'espace sur les côtés */
+        }
+
+       .skills-category {
+          width: 100%;
+        }
+    }
+
+
+       .skills-category h3 {
+           margin-bottom: 10px;
+        }
+
+       .skills-category ul li {
+           margin-bottom: 6px;
+        }
+
+
+        body {
+           background: #fff;
+           color: #181818;
+           font-family: 'Montserrat', Arial, sans-serif;
+        }
+
+       .contact-section {
+           background: #181818;
+           color: #fff;
+           text-align: center;
+           margin-top: 30px;
+        }
+
+       .contact-section h2 {
+           font-size: 2.4rem;
+           font-weight: 700;
+           margin-bottom: 18px;
+           color: #fff;
+        }
+
+       .contact-section .accent {
+           color: #1be5ea;
+           font-weight: 700;
+        }
+
+       .contact-form {
+           margin: 0 auto;
+           max-width: 600px;
+           background: none;
+           display: flex;
+           flex-direction: column;
+           align-items: center;
+           gap: 20px;
+        }
+
+       .form-row {
+           display: flex;
+           gap: 16px;
+           width: 100%;
+        }
+
+       .form-group {
+           flex: 1;
+           display: flex;
+           flex-direction: column;
+           align-items: flex-start;
+        }
+
+        label {
+           font-size: 1rem;
+           font-weight: 500;
+           margin-bottom: 6px;
+        }
+
+        /* Photo circulaire à droite */
+       .photo-profil {
+           width: 200px;          /* Taille agrandie */
+           height: 200px;
+           border-radius: 50%;
+           overflow: hidden;
+           border: 8px solid #0078ff; /* Bord un peu plus épais (optionnel) */
+           flex-shrink: 0;
+        }
+
+        .apropos-container {
+           display: flex;
+           justify-content: space-between;
+           align-items: center; /* Alignement vertical parfait */
+           gap: 40px;
+           flex-wrap: nowrap;
+        }
+
+       .photo-profil img {
+           width: 100%;
+           height: 100%;
+           object-fit: cover; 
+           object-position: center; 
+           object-fit: cover;
+        }
+
+       .apropos-texte {
+          flex: 1;
+          max-width: 600px;
+        }
+
+        input, textarea {
+           width: 100%;
+           padding: 10px 15px;
+           border: none;
+           border-radius: 8px;
+           background: #fff;
+           color: #181818;
+           font-size: 1.05rem;
+           outline: none;
+           transition: box-shadow 0.2s;
+           box-sizing: border-box;
+           margin-bottom: 2px;
+        }
+
+        input:focus, textarea:focus {
+           box-shadow: 0 0 0 2px #1be5ea;
+        }
+
+        textarea {
+           min-height: 130px;
+           resize: none;
+        }
+
+        button[type="submit"] {
+           background: #005fcc;
+           color: #fff;
+           padding: 12px 36px;
+           border: none;
+           border-radius: 8px;
+           font-size: 1.25rem;
+           font-weight: 700;
+           margin-top: 15px;
+           cursor: pointer;
+           box-shadow: 0 2px 10px rgba(0,0,0,0.10);
+           transition: background 0.25s;
+        }
+
+        button[type="submit"]:hover {
+           background: #13bacb;
+        }
+
+       .footer-section {
+          background: #f7f7fc;
+          color: #181818;
+          width: 100%;
+          padding: 18px 0;
+          margin-top: 48px;
+          position: relative;
+        }
+
+       .footer-content {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          max-width: 1300px;
+          margin: 0 auto;
+          font-size: 1.05rem;
+        }
+
+       .footer-section .accent {
+           color: #1be5ea;
+           font-weight: 700;
+        }
+
+        /* --------- CONTACT --------- */
+       form {
+           display: flex;
+           flex-direction: column;
+           gap: 12px;
+           width: 100%;
+           max-width: 500px;
+           margin: auto;
+        }
+
+       form input, form textarea {
+           padding: 10px;
+           border-radius: 5px;
+           border: 1px solid #aaa;
+        }
+
+        #confirmationMessage {
+           margin-top: 15px;
+           font-weight: bold;
+           color: green;
+        }
+
+        /* --------- FOOTER --------- */
+        footer {
+           background: White;
+           color: #181818;
+           text-align: center;
+           padding: 25px;
+           margin-top: 40px;
+        }
+      
+    </style>
+</head>
+
+<body>
+
+    <!-- ==================== NAVIGATION ==================== -->
+    <header>
+        <nav class="navbar">
+            <h2 class="logo">AHOUANGBASSA Paulin David</h2>
+            <ul class="nav-links">
+                <li><a href="#accueil">Accueil</a></li>
+                <li><a href="#apropos">À propos</a></li>
+                <li><a href="#projets">Projets</a></li>
+                <li><a href="#competences">Compétences</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- ==================== SECTION ACCUEIL ==================== -->
+    <section id="accueil" class="section accueil">
+<div class="accueil-container">
+        <div class="content">
+            <h1>Je suis <span id="prénom"> <strong>Paulin David</strong> </span>, développeur en devenir passionné par le web et le design !</h1>
+            <a href="#projets" class="btn">Voir mes projets</a>
+        </div>
+         <div class="accueil-image">
+            <img src="c:\Users\PC2\Downloads\developpement-logiciels-langages-programmation-web-css-html-it-ui-programmeur-personnage-dessin-anime-developpement-site-web-codage-plat-illustration-banniere_128772-1968.avif" alt="Photo accueil">
+        </div>
+</div>
+    </section>
+
+    <!-- ==================== SECTION À PROPOS ==================== -->
+    <section id="apropos" class="section apropos">
+        <h2>À propos</h2>
+<div class="apropos-container">
+
+    <div class="apropos-texte">
+        <p>Je m’appelle <strong> Paulin David AHOUANGBASSA</strong>, passionné par la création de sites web modernes ,interactifs et écologiques.</p>
+        <ul>
+            <li>Je suis ctuellement étudiant en développement web.</li>
+            <li>Je cherche à améliorer mes compétences en <b>JavaScript, HTML et CSS</b>.</li>
+            <li>J’adore transformer mes idées en projets concrets et expérimenter avec les nouvelles technologies.</li>
+        </ul>
+        <a href="c:\Users\PC2\Downloads\CV_Téléconseiller_AHOUANGBASSA_Paulin_David.pdf" class="btn">Télécharger mon CV</a>
+    </div>
+        <!-- Photo de profil -->
+        <div class="photo-profil">
+            <img src="c:\Users\PC2\Downloads\Copie de fr1_10.jpg" alt="Photo de profil">
+        </div>
+</div>
+    </section>
+
+    <!-- ==================== SECTION PROJETS ==================== -->
+    <section id="projets" class="section projets">
+        <h2>Mes Projets</h2>
+
+        <div class="project-grid">
+
+            <div class="project-card">
+                <h3>Mini projet réalisé</h3>
+                <p>Décompte d'heure</p>
+                <span class="tags">#html #css #js</span>
+                <button class="btn btn-view" onclick="window.open('file:///C:/Users/PC2/Desktop/D-CLIC%20Projet%20Folder/Semaine%205/Exercice%204.html', '_blank')">Voir</button>
+            </div>
+
+            <div class="project-card">
+                <h3>Mini projet réalisé</h3>
+                <p>Calcul de pret hypothécaire.</p>
+                <span class="tags">#html #css #js</span>
+                <button class="btn btn-view"  onclick="window.open('file:///C:/Users/PC2/Desktop/D-CLIC%20Projet%20Folder/Semaine%205/Exercice%206.html', '_blank')">Voir</button>
+            </div>
+
+            <div class="project-card">
+                <h3>Mini-jeu JavaScript</h3>
+                <p>Génération du max et du min d'un nombre en 1 et 100</p>
+                <span class="tags">#html #css #js</span>
+                <button class="btn btn-view" onclick="window.open('file:///C:/Users/PC2/Desktop/D-CLIC%20Projet%20Folder/Semaine%205/Exercice%202.html', '_blank')">Voir</button>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ==================== SECTION COMPÉTENCES ==================== -->
+    <section id="competences" class="section competences">
+        <h2>Compétences</h2>
+
+        <div class="skills">
+
+            <div class="skills-category">
+                <h3>Hard Skills</h3>
+                <ul>
+                    <li>
+                      HTML
+                      <div class="progress-bar"><div class="progress" style="width: 95%;"></div>
+            </div>
+                    </li>
+                    <li>
+                      CSS
+                      <div class="progress-bar"><div class="progress" style="width: 75%;"></div>
+            </div>
+                    </li>
+                    <li>
+                       JavaScript
+                       <div class="progress-bar"><div class="progress" style="width: 80%;"></div>
+            </div>       
+                    </li>
+                    <li>
+                        VS Code
+                        <div class="progress-bar"><div class="progress" style="width: 75%;"></div>
+            </div>       
+                    </li>
+                </ul>
+            </div>
+
+            <div class="skills-category">
+                <h3>Soft Skills</h3>
+                <ul>
+                    <li>
+                        Gestion de projet
+                        <div class="progress-bar"><div class="progress" style="width: 80%;"></div>
+            </div>       
+                    </li>
+                    <li>
+                        Résolution de problèmes
+                        <div class="progress-bar"><div class="progress" style="width: 70%;"></div>
+
+            </div>
+                    </li>
+                    <li>
+                        Adaptabilité
+                        <div class="progress-bar"><div class="progress" style="width: 90%;"></div>
+            </div>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ==================== SECTION CONTACT ==================== -->
+    <section id="contact" class="section contact">
+        <h2>Contact</h2>
+        <h4 class="accroche">Vous avez un projet en tête ?</h4> <h5>N’hésitez pas à me contacter.</h5>
+
+        <form id="contactForm">
+            <input type="text" id="prenomForm" placeholder="Votre prénom" required> <input type="text" id="nomForm" placeholder="Votre nom" required>
+            <input type="text" id="sujetForm" placeholder="Sujet (ex : site vitrine)" required>
+            <textarea id="messageForm" rows="5" placeholder="Votre message" required></textarea>
+
+            <button type="submit" class="btn">Envoyer</button>
+        </form>
+
+        <p id="confirmationMessage"></p>
+    </section>
+
+    <!-- ==================== PIED DE PAGE ==================== -->
+    <footer>
+        <p>Designed by Paulin David with HTML CSS JS</p>
+        <p>© Tous droits réservés - 2025</p>
+    </footer>
+
+    <script>
+        document.getElementById("contactForm").addEventListener("submit", function(e) {
+            e.preventDefault();
+
+            const prenom = document.getElementById("prenomForm").value;
+            const nom = document.getElementById("nomForm").value;
+
+        document.getElementById("confirmationMessage").textContent =
+            "Merci " + prenom + " " + nom + ", votre message a bien été envoyé !";
+
+        this.reset();
+        });
+    </script>
+</body>
+</html>

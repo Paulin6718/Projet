@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 30px;
+        }
+        input {
+            padding: 10px;
+            font-size: 20px;
+            width: 180px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Il est actuellement :</h2>
+    <!-- Zone qui affichera l'heure -->
+    <input type="text" id="clock" readonly>
+
+    <script>
+
+        function afficherHeure() {
+            const now = new Date();
+
+            let heures = now.getHours();
+            let minutes = now.getMinutes();
+            let secondes = now.getSeconds();
+
+            // Ajout du zéro si valeur < 10
+            heures   = (heures   < 10) ? "0" + heures   : heures;
+            minutes  = (minutes  < 10) ? "0" + minutes  : minutes;
+            secondes = (secondes < 10) ? "0" + secondes : secondes;
+
+            const heureFormat = heures + ":" + minutes + ":" + secondes;
+
+            // Affichage dans l'input
+            document.getElementById("clock").value = heureFormat;
+
+            // Actualisation après 1 seconde
+            setTimeout(afficherHeure, 1000);
+        }
+
+        // Lancement au chargement de la page
+        afficherHeure();
+
+    </script>
+
+</body>
+</html>
